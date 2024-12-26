@@ -1,0 +1,10 @@
+Installing Istio on multipass
+
+1.curl -L https://istio.io/downloadIstio | sh -
+2cd istio-<version>  # Replace <version> with the actual version number
+3.export PATH=$PWD/bin:$PATH
+4.export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+5.istioctl install --set profile=default
+6.kubectl get pods -n istio-system
+7.kubectl label namespace default istio-injection=enabled
+8.Now install gateway and virtual service of ingress-gateway
