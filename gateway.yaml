@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+ name: my-gateway
+ namespace: istio-system
+spec:
+ selector:
+  istio: ingressgateway
+ servers:
+ - port:
+     name: https
+     number: 443
+     protocol: HTTPS
+   tls:
+    mode: SIMPLE
+    credentialName: ingress-local-tls -> Please note this should be changed according to your secret name
+   hosts:
+   - tt.thaslij.com
+   
